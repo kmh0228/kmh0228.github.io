@@ -1,0 +1,85 @@
+/* 默认样式 */
+.creation_dialog_default.n-dialog.n-modal {
+  background-color: #fff;
+  box-shadow: 0px 2px 12px 1px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding-bottom: 41px;
+  width: 340px;
+  .n-dialog__close {
+    margin: 24px 24px 0 0;
+  }
+  .n-dialog__content {
+    text-align: center;
+    font-size: 15px;
+    color: #141414;
+    font-weight: bold;
+    line-height: 21px;
+    padding-top: 17px;
+    margin-bottom: 30px;
+  }
+  .n-dialog__action {
+    display: flex;
+    justify-content: center;
+    *:not(:last-child) {
+      margin-right: 40px;
+    }
+    .n-button {
+      width: 92px;
+      height: 40px;
+      border-radius: 8px;
+      .n-button__content {
+        text-align: center;
+        margin: 0 !important;
+      }
+      .n-base-wave,
+      .n-button__border {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* 成功弹窗样式 */
+.creation_dialog_default.n-dialog.n-modal.creation_dialog_success,
+.creation_dialog_default.n-dialog.n-modal.creation_dialog_info {
+  width: 400px;
+  .n-dialog__close {
+    margin: 12px 12px 0 0;
+  }
+  .n-dialog__content {
+    padding-top: 7px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #141414;
+    font-weight: normal;
+    .success_info {
+      display: flex;
+      flex-direction: column;
+      .iconfont {
+        font-size: 24px;
+        line-height: 24px;
+        color: #467af2;
+      }
+      .text{
+        margin-top:20px;
+      }
+    }
+  }
+  .n-dialog__action {
+    *:not(:last-child) {
+      margin-right: 12px;
+    }
+    .n-button {
+      width: 88px;
+      height: 32px;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* 成功信息样式 */
+.creation_dialog_default.n-dialog.n-modal.creation_dialog_info{
+  .n-dialog__content{
+    padding-top:17px;
+  }
+}

@@ -1,0 +1,58 @@
+/* 混淆css */
+
+/* 内容居中 */
+@mixin flexCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 内容居左中 */
+@mixin flexLeft{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+/* 内容居左中 */
+@mixin flexBetween{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 文本溢出 */
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行文本溢出 */
+@mixin ellipsisLines($n) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+}
+
+/* 滚动容器 */
+@mixin scrollContainer() {
+  /* 修改滚动条的颜色和宽度 */
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+  /* 修改滚动条滑块的样式 */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(217, 217, 227, 0.8);
+    border-radius: 3px;
+  }
+  /* 修改滚动条滑块在hover状态下的样式 */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(217, 217, 227, 0.8);
+  }
+}
+
