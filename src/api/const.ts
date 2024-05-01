@@ -1,3 +1,6 @@
+// 是否使用静态数据
+export const useStaticData = import.meta.env.PROD
+
 // 请求状态
 export enum RequestStatus {
   SUCCESS = 200, // 请求成功

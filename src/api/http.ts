@@ -1,7 +1,8 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios'
 import { GHttp } from '@/types/api/GHttp'
-import { RequestStatus } from '@/api/const.ts'
+import { RequestStatus, useStaticData } from '@/api/const.ts'
 import { useUserStore } from '@/store/userStore.ts'
+import mockData from '@/mock'
 
 const defaultConfig: AxiosRequestConfig = {
   baseURL: '/',
@@ -65,7 +66,23 @@ class Request {
     )
   }
 
+  getMockData<T>(url: string): Promise<GHttp.IRes<T>> {
+    const data = mockData.find((n) => n.url === url)
+    const errorData = {
+      code: 400,
+      data: null,
+      msg: '没有找到服务'
+    }
+    if (data) {
+      // @ts-ignore
+      return Promise.resolve(data.response?.() || errorData)
+    } else {
+      return Promise.resolve(errorData)
+    }
+  }
+
   get<T>(url: string, params?: any, config?: GHttp.CustomConfig): Promise<GHttp.IRes<T>> {
+    if (useStaticData) return this.getMockData(url)
     return this.instance
       .get(url, { params, ...config })
       .then((res) => {
@@ -77,6 +94,7 @@ class Request {
   }
 
   post<T>(url: string, params?: any, config?: GHttp.CustomConfig): Promise<GHttp.IRes<T>> {
+    if (useStaticData) return this.getMockData(url)
     return this.instance
       .post(url, params, config)
       .then((res) => {

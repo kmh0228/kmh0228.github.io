@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import interceptors from './interceptors.ts'
 import { GRouterItem } from '@/types/GRouter'
 
@@ -18,7 +18,8 @@ const routerList: GRouterItem[] = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  // history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: routerList
 })
 

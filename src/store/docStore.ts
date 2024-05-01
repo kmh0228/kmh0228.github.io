@@ -87,7 +87,7 @@ export const useDocStore = defineStore('docStore', {
     updateDocData() {
       // 获取数据
       return requestGetDocs().then(({ data }) => {
-        this.setDocData(data)
+        this.setDocData(data || [])
         return data
       })
     },

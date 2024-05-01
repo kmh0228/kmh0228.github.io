@@ -1,1 +1,0 @@
-import{_ as o,c as t,a as c,r as n,o as r}from"./index-C-OsfQsU.js";const s={},a={class:"app-layout__container"};function _(i,p){const e=n("router-view");return r(),t("div",a,[c(e)])}const l=o(s,[["render",_]]);export{l as default};

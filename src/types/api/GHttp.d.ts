@@ -1,6 +1,6 @@
-import type { AxiosRequestConfig } from 'axios'
-
+import { RequestStatus } from '@/api/const.ts'
 declare namespace GHttp {
+  import type { AxiosRequestConfig } from 'axios'
   import type { AxiosRequestHeaders } from 'axios'
 
   // 请求头
@@ -15,9 +15,8 @@ declare namespace GHttp {
 
   // 返回数据结果
   interface IRes<T> {
-    code: number
-    data: T
+    code: RequestStatus
+    data: T | null
     msg: string
-    isSuccess: boolean
   }
 }
