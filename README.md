@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# kmh0228.github.io
-main html
-=======
 # init project
 
 1. npm create vite@latest
@@ -51,7 +47,3 @@ main html
 
 11. 配置字体 npm i -D vfonts
 
-
-
-   
->>>>>>> 00f2a11 (init)
