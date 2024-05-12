@@ -38,7 +38,7 @@ onUnmounted(() => {
 </script>
 <style lang="scss" scoped>
 .docs_content_container {
-  padding: 0 40px;
+  padding: 0 10px;
   height: 100%;
   .docs_content_title {
     height: 40px;
@@ -47,6 +47,7 @@ onUnmounted(() => {
   }
   .docs_content_scroll_box {
     @include scrollContainer();
+    padding: 0 30px;
     overflow-y: auto;
     height: calc(100% - 60px);
     position: relative;

@@ -13,15 +13,21 @@
       </a>
     </div>
     <div class="operation_content">
-      <n-button type="info" @click="exportDocContent">导出</n-button>
-      <n-button type="info" @click="importDocContent">导入</n-button>
+      <n-input class="operation_item" round placeholder="搜索">
+        <template #suffix>
+          <n-icon :component="SearchOutline" />
+        </template>
+      </n-input>
+      <n-button class="operation_item" type="info" @click="exportDocContent">导出</n-button>
+      <n-button class="operation_item" type="info" @click="importDocContent">导入</n-button>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { useDocStore } from '@/store/docStore.ts'
-import { NButton } from 'naive-ui'
+import { NButton, NInput, NIcon } from 'naive-ui'
 import { exportTextAsFile, importFile, readTxtFile } from '@/utils'
+import { SearchOutline } from '@vicons/ionicons5'
 
 const docStore = useDocStore()
 
@@ -71,9 +77,13 @@ const importDocContent = () => {
 
   /* 按钮容器 */
   .operation_content {
+    display: flex;
+    align-content: center;
+    .operation_item {
+      margin-left: 12px;
+    }
     .n-button {
       min-width: 80px;
-      margin-left: 12px;
     }
   }
 }
