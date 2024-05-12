@@ -179,8 +179,8 @@ function exportTextAsFile(text: string, filename: string) {
   },
   {
     id: 't_1_2_7',
-    name: '把文字导出成txt文档',
-    desc: '方法名：exportTextAsFile',
+    name: '导入文件',
+    desc: '方法名：importFile',
     code: `// 导入文件
 const fileTypes = {
   pdf: { dox: ['pdf'], type: 'application/pdf' },
@@ -228,9 +228,9 @@ function importFile(option: TImportFileOption = {}): Promise<File[]> {
 }`
   },
   {
-    id: 't_1_2_7',
-    name: '把文字导出成txt文档',
-    desc: '方法名：exportTextAsFile',
+    id: 't_1_2_8',
+    name: '读取txt文件内容',
+    desc: '方法名：readTxtFile',
     code: `// 读取txt文件内容
 const readTxtFile = (textFile: File): Promise<string> => {
   const reader = new FileReader()

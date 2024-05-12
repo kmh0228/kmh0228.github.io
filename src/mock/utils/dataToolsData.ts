@@ -146,9 +146,9 @@ const setParentsByRecursion = <
 }`
   },
   {
-    id: 't_1_1_4',
-    name: '在递归数据中增加parents字段',
-    desc: '方法名：setParentsByRecursion',
+    id: 't_1_1_5',
+    name: '在递归数据中删除parents字段',
+    desc: '方法名：delParentsByRecursion',
     code: `/**
  * 在递归数据中删除parents字段
  * @param data 递归数据
