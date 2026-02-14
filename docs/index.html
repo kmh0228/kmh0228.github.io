@@ -1,14 +1,202 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue + TS</title>
-    <script type="module" crossorigin src="/assets/index-EtpS3wsF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Bgy4a89S.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网站迁移通知</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 60px 40px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: white;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .content {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .highlight {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      cursor: pointer;
+      border: none;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .warning {
+      margin-top: 30px;
+      padding: 15px 20px;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 10px;
+      color: #856404;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .warning strong {
+      color: #ff9800;
+      font-weight: 600;
+    }
+
+    .info {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      color: #999;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 40px 30px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .content {
+        font-size: 15px;
+      }
+
+      .button {
+        padding: 12px 30px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🚀</div>
+    <h1>网站迁移通知</h1>
+    <div class="content">
+      该网站已经迁移至<span class="highlight">腾讯服务器</span>，<br>
+      备案还没有申请完成，<br>
+      大家先用<span class="highlight">IP访问</span>下。
+    </div>
+    <a href="#" class="button" id="goButton">点击前往</a>
+    <div class="warning">
+      ⚠️ <strong>温馨提示：</strong>如果遇到风险提示，请点击 <strong>高级</strong> → <strong>继续访问</strong>
+    </div>
+    <div class="info">
+      备案完成后将恢复正常域名访问
+    </div>
+  </div>
+
+  <script>
+    // 获取当前页面的IP地址
+    const currentHost = window.location.hostname;
+    const currentProtocol = window.location.protocol;
+    const currentPort = window.location.port;
+    
+    // 如果当前不是IP访问，可以设置跳转的IP地址
+    // 这里需要根据实际情况修改IP地址
+    const ipAddress = currentHost; // 默认使用当前hostname，如果是域名访问需要替换为实际IP
+    
+    document.getElementById('goButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 如果当前是域名访问，可以跳转到IP
+      // 如果已经是IP访问，则刷新页面
+      if (currentHost.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+        // 已经是IP访问，刷新页面
+        window.location.reload();
+      } else {
+        // 这里需要替换为实际的IP地址
+        window.location.href = 'http://129.204.141.123/w/#/home';
+        // alert('请将域名替换为IP地址访问');
+      }
+    });
+  </script>
+</body>
 </html>
+
